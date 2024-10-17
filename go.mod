@@ -2,6 +2,15 @@ module knative.dev/net-certmanager
 
 go 1.18
 
+// note, we have forked `knative/pkg` to apply some changes:
+//  - https://github.com/deployKF/knative-pkg/tree/fork-1.13
+//
+// to get the pseudo-version of the fork, run:
+//  - go get github.com/deployKF/knative-pkg@fork-1.13
+//
+// remember to run `./hack/update-deps.sh` when updating the version
+replace knative.dev/pkg => github.com/deployKF/knative-pkg v0.0.0-20241017230044-3db6060cea05
+
 require (
 	github.com/cert-manager/cert-manager v1.13.3
 	github.com/ghodss/yaml v1.0.0
@@ -12,7 +21,7 @@ require (
 	k8s.io/client-go v0.28.5
 	knative.dev/hack v0.0.0-20240123162936-f3f03ac0ab1a
 	knative.dev/networking v0.0.0-20240116081125-ce0738abf051
-	knative.dev/pkg v0.0.0-20240116073220-b488e7be5902
+	knative.dev/pkg v0.0.0
 )
 
 require (
